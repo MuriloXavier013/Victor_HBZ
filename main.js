@@ -1,5 +1,4 @@
 /* Abre e fecha o menu ao cliclar no icone: hamburguer*/
-
 const nav = document.querySelector('#header nav')
 const toggle = document.querySelectorAll('nav .toggle')
 
@@ -10,7 +9,6 @@ for (const element of toggle) {
 }
 
 /* quando clicar em um item do menu, esconder o menu*/
-
 const links = document.querySelectorAll('nav ul li a')
 
 for (const link of links) {
@@ -20,14 +18,15 @@ for (const link of links) {
 }
 
 /* mudar a cor do header ao scrollar*/
-
 const header = document.querySelector('#header')
-const navheight = header.offsetHeight
+const navHeight = header.offsetHeight
 
 function changeHeaderWhenScroll() {
-  if (window.scrollY >= navheight) {
+  if (window.scrollY >= navHeight) {
+    // scroll é maior que a altura do header
     header.classList.add('scroll')
   } else {
+    // menor que a altura do header
     header.classList.remove('scroll')
   }
 }
@@ -92,6 +91,7 @@ function backToTop() {
   }
 }
 
+/* Menu ativo conforme a seção visível na página */
 const sections = document.querySelectorAll('main section(id')
 function activateMenuAtCurrentSection() {
   const checkpoint = window.pageYOffset + (window.innerHeight / 8) * 4

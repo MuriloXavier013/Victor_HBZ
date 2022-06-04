@@ -15,7 +15,6 @@ a {
 
 img {
   width: 100%;
-  height: auto;
 }
 
 /*===== VARIÁVEIS ===============*/
@@ -43,6 +42,7 @@ body {
   font: 400 1rem 'DM Sans', sans-serif;
   color: var(--black);
   background-color: var(--white);
+  -webkit-font-smoothing: antialiased;
 }
 
 .title {
@@ -53,19 +53,13 @@ body {
 
 .button {
   display: inline-flex;
-
   align-items: center;
-
   border: 1px solid var(--red);
   background-color: var(--white);
   color: var(--red);
-
   height: 3.5rem;
-
   padding: 0 2rem;
-
   border-radius: 0.25rem;
-
   font: 500 1rem 'DM Sans', sans-serif;
   transition: background 0.3s;
 }
@@ -102,7 +96,7 @@ body {
 }
 
 .section {
-  padding: 5rem 0;
+  padding: calc(5rem + var(--header-height)) 0;
 }
 
 .section .title {
@@ -117,9 +111,12 @@ body {
   margin-bottom: 4rem;
 }
 
+.section header strong {
+  color: var(--base-color);
+}
+
 #header {
   display: flex;
-
   width: 100%;
   position: fixed;
 
@@ -137,7 +134,6 @@ body {
 #header.scroll {
   box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1);
   background-color: var(--red);
-  transition: background-color 0.3s;
 }
 
 #header.scroll .logo span {
@@ -214,17 +210,12 @@ nav ul li a.active::after {
 nav .menu {
   opacity: 0;
   visibility: hidden;
-
   top: -20rem;
   transition: 0.2s;
 }
 
 nav .menu ul {
   display: none;
-}
-
-nav .menu ul a {
-  display: grid;
 }
 
 nav.show .menu {
@@ -274,13 +265,13 @@ nav .icon-close {
 nav.show div.icon-close {
   visibility: visible;
   opacity: 1;
-
   top: 1.5rem;
 }
 
 /*===== HOME ===============*/
 
 #home {
+  padding-top: 1rem;
   overflow: hidden;
 }
 
@@ -294,7 +285,7 @@ nav.show div.icon-close {
 
 #home .image::before {
   content: '';
-  height: 100%;
+  height: 60%;
   width: 100%;
   background-color: var(--gray);
   position: absolute;
@@ -317,7 +308,6 @@ nav.show div.icon-close {
 #home .text {
   margin-left: 1.5rem;
   margin-right: 1.5rem;
-
   text-align: center;
 }
 
@@ -406,6 +396,8 @@ nav.show div.icon-close {
 #testimonials .container {
   margin-left: 0;
   margin-right: 0;
+  position: relative;
+  overflow: hidden;
 }
 
 #testimonials header {
@@ -444,7 +436,6 @@ nav.show div.icon-close {
   width: 2rem;
   height: 2rem;
   object-fit: cover;
-
   background-color: #2e2c3a;
   clip-path: circle();
   margin-right: 0.5rem;
@@ -452,11 +443,14 @@ nav.show div.icon-close {
 
 /*===== SWIPER ===============*/
 
-.swiper {
-  width: 600px;
-  height: 300px;
-
+.swiper-slide {
+  height: auto;
   padding: 4rem 1rem;
+}
+
+.swiper-pagination-bullet {
+  width: 0.75rem;
+  height: 0.75rem;
 }
 
 .swiper-pagination-bullet-active {
@@ -548,7 +542,7 @@ footer .social a:hover {
 /*===== BACK TO TOP ========================= */
 
 .back-to-top {
-  background: var(--gray);
+  background: var(--red);
 
   position: fixed;
   right: 1rem;
@@ -590,11 +584,13 @@ footer .social a:hover {
     padding: 10rem 0;
   }
 
-  .section header {
+  .section header,
+  #testimonials header {
     max-width: 32rem;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
+    align-items: center;
   }
 
   .button {
@@ -635,9 +631,18 @@ footer .social a:hover {
   }
   /* home */
 
+  #home img {
+    display: inline-block;
+  }
+
+  #home {
+    padding: calc(5rem + var(--header-height)) 0;
+  }
+
   #home .container {
     grid-auto-flow: column;
     justify-content: space-between;
+    align-items: center;
     margin: 0 auto;
   }
 
@@ -654,6 +659,7 @@ footer .social a:hover {
   #about .container {
     margin: 0 auto;
     grid-auto-flow: column;
+    align-items: center;
   }
 
   /* Services */
