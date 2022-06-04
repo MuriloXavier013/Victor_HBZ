@@ -14,7 +14,7 @@ a {
 }
 
 img {
-  width: 100%;
+  max-height: 583px;
 }
 
 /*===== VARIÁVEIS ===============*/
@@ -285,7 +285,7 @@ nav.show div.icon-close {
 
 #home .image::before {
   content: '';
-  height: 60%;
+  height: 100%;
   width: 100%;
   background-color: var(--gray);
   position: absolute;
@@ -390,7 +390,7 @@ nav.show div.icon-close {
 /*===== TESTIMONIALS ===============*/
 
 #testimonials {
-  background: white;
+  background: var(--base-color);
 }
 
 #testimonials .container {
@@ -398,6 +398,8 @@ nav.show div.icon-close {
   margin-right: 0;
   position: relative;
   overflow: hidden;
+  align-items: center;
+  justify-content: center;
 }
 
 #testimonials header {
@@ -676,8 +678,8 @@ footer .social a:hover {
   }
 
   #testimonials .container {
-    margin-left: auto;
-    margin-left: auto;
+    margin-inline: auto;
+    overflow: hidden;
   }
 
   #contact .container {
